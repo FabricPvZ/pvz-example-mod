@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "pvz-example-mod",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "PvZ Example Mod",
   "description": "Reference mod for the pvz-fabric toolchain: shows the event API, the mod hooks and a mixin into the game.",
   "authors": [
@@ -19,7 +19,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.19.0",
-    "fabric-api": ">=1.0.0",
+    "fabric-api": ">=1.1.0",
     "pvz-portable": "*"
   }
 }

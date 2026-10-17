@@ -12,11 +12,14 @@ Build and publish (as a mod jar containing `fabric.mod.json` and `examplemod.mix
 ```
 
 The build file is the toolchain plugin plus the coordinates
-(`plugins { id("cn.enaium.fabricpvz.loom") version "1.0.0" }`): the plugin, from the
-Gradle Plugin Portal (`https://plugins.gradle.org/plugin/cn.enaium.fabricpvz.loom`, so nothing has to
-be published locally first), puts the real Fabric Loader, Mixin, ASM, the API and the game on the
-compile class path without this project listing any of them. `./gradlew runClient` boots the game
-through the real loader with the built jar in `run/mods/`.
+(`plugins { id("cn.enaium.fabricpvz.loom") version "1.0.1" }`): the plugin resolves from the Gradle
+Plugin Portal, which serves that version (`(cd ../loom && ./gradlew publishPlugins)`), and the
+settings file keeps `mavenLocal()` after the portal only as a fallback for a version the portal does
+not serve yet. It puts the real Fabric Loader, Mixin, ASM, the API and the game on the
+compile class path without this project listing any of them. `./gradlew runClient` is a development
+run: the mod's own output (its classes and resources) and the API aggregate jar are on the class
+path and the loader discovers the mod there (`-Dfabric.development=true`), with nothing copied into
+`run/mods/`.
 
 Installing into the game: drop the jar into the game directory's `mods/` (for example `PvZ-Portable/run/mods/`). The game is launched by the real Fabric Loader through `net.fabricmc.loader.impl.launch.knot.KnotClient` together with `cn.enaium.fabricpvz:fabric-provider`, which registers the game as a built-in mod; the loader then discovers the jar automatically at startup.
 `PvZ-Portable`'s end-to-end test also pulls this artifact from `mavenLocal`, places it into `build/testmods/`, and verifies the event chain and bytecode injection.
