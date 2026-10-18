@@ -21,7 +21,7 @@ run: the mod's own output (its classes and resources) and the API aggregate jar 
 path and the loader discovers the mod there (`-Dfabric.development=true`), with nothing copied into
 `run/mods/`.
 
-Installing into the game: drop the jar into the game directory's `mods/` (for example `PvZ-Portable/run/mods/`). The game is launched by the real Fabric Loader through `net.fabricmc.loader.impl.launch.knot.KnotClient` together with `cn.enaium.fabricpvz:fabric-provider`, which registers the game as a built-in mod; the loader then discovers the jar automatically at startup.
+Installing into the game: drop the jar into the game directory's `mods/` (for example `PvZ-Portable/run/mods/`). The game is launched by the real Fabric Loader through `net.fabricmc.loader.impl.launch.knot.KnotClient` together with the game provider the game jar carries, which registers the game as a built-in mod; the loader then discovers the jar automatically at startup.
 `PvZ-Portable`'s end-to-end test also pulls this artifact from `mavenLocal`, places it into `build/testmods/`, and verifies the event chain and bytecode injection.
 
 ## License

@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * API, whose Log4j backend and configuration the launcher publishes, so this mod's lines, Fabric
  * Loader's own lines and the Mixin subsystem's lines are one stream in one format. Nothing has to be
  * declared for it - the toolchain puts the SLF4J API on the compile class path
- * ({@code org.slf4j:slf4j-api}) and {@code fabric-provider} puts the implementation on the launch
+ * ({@code org.slf4j:slf4j-api}) and the game's launch libraries put the implementation on the launch
  * class path.
  */
 public final class ExampleMod implements ModInitializer {
