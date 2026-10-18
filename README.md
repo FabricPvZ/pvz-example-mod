@@ -12,7 +12,7 @@ Build and publish (as a mod jar containing `fabric.mod.json` and `examplemod.mix
 ```
 
 The build file is the toolchain plugin plus the coordinates
-(`plugins { id("cn.enaium.fabricpvz.loom") version "1.0.1" }`): the plugin resolves from the Gradle
+(`plugins { id("cn.enaium.fabricpvz.loom") version "1.0.5" }`): the plugin resolves from the Gradle
 Plugin Portal, which serves that version (`(cd ../loom && ./gradlew publishPlugins)`), and the
 settings file keeps `mavenLocal()` after the portal only as a fallback for a version the portal does
 not serve yet. It puts the real Fabric Loader, Mixin, ASM, the API and the game on the
