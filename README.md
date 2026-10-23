@@ -17,7 +17,7 @@ Plugin Portal, which serves that version (`(cd ../loom && ./gradlew publishPlugi
 settings file keeps `mavenLocal()` after the portal only as a fallback for a version the portal does
 not serve yet. It puts the real Fabric Loader, Mixin, ASM, the API and the game on the
 compile class path without this project listing any of them. `./gradlew runClient` is a development
-run: the mod's own output (its classes and resources) and the API aggregate jar are on the class
+run: the mod's own output (its classes and resources), its runtime class path and its `include` jars are on the class
 path and the loader discovers the mod there (`-Dfabric.development=true`), with nothing copied into
 `run/mods/`.
 
